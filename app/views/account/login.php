@@ -19,21 +19,23 @@
                                 </div>
                                 <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                                <div class="d-flex justify-content-center text-center mt-4 pt-1"></div>
-                                <a href="#!" class="text-white"><i class="fab fa-facebook-f falg"></i></a>
-                                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                <a href="#!" class="text-white"><i class="fab fa-google falg"></i></a>
+
+                                <div class="d-flex justify-content-center mt-4">
+                                    <p class="text-white-50">Or login with:</p>
+                                </div>
+                                <!-- Nút đăng nhập Google -->
+                                <a href="/WEBBANHANG/account/googleLogin" class="btn btn-danger btn-lg px-5">
+                                    Login with Google
+                                </a>
                             </div>
+                        </form>
                     </div>
                     <div>
-                        <p class="mb-0">Don't have an account? <a href="/WEBBANHANG/account/register " class="text-white-50 fw-bold">Sign Up</a>
-                        </p>
+                        <p class="mb-0">Don't have an account? <a href="/WEBBANHANG/account/register" class="text-white-50 fw-bold">Sign Up</a></p>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <?php include 'app/views/shares/footer.php'; ?>

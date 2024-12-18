@@ -97,12 +97,46 @@ class ProductModel
     {
         $query = "DELETE FROM " . $this->table_name . " WHERE id=:id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
-        if ($stmt->execute()) {
-            return true;
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        
+        try {
+            // Execute and check affected rows
+            $result = $stmt->execute();
+            $affectedRows = $stmt->rowCount();
+    
+            if ($result && $affectedRows > 0) {
+                // Successfully deleted
+                return [
+                    'success' => true,
+                    'message' => 'Product deleted successfully',
+                    'deletedRows' => $affectedRows
+                ];
+            } elseif ($affectedRows === 0) {
+                // No rows were deleted (product not found)
+                return [
+                    'success' => false,
+                    'message' => 'No product found with the specified ID',
+                    'deletedRows' => 0
+                ];
+            } else {
+                // Execution failed
+                return [
+                    'success' => false,
+                    'message' => 'Failed to delete product',
+                    'deletedRows' => 0
+                ];
+            }
+        } catch (PDOException $e) {
+            // Database-specific error
+            return [
+                'success' => false,
+                'message' => 'Database error: ' . $e->getMessage(),
+                'deletedRows' => 0
+            ];
         }
-        return false;
     }
+    
+    
 
 
 

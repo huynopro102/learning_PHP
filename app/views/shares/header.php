@@ -25,19 +25,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/webbanhang/Product/">Danh sách sản
+                    <a class="nav-link" href="/WEBBANHANG/Product/list">Danh sách sản
                         phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/webbanhang/Product/add">Thêm sản
+                    <a class="nav-link" href="/WEBBANHANG/Product/add">Thêm sản
                         phẩm</a>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/WEBBANHANG/admin/AdminAccount/listAccounts">danh sách tài khoản</a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="/WEBBANHANG/Product/updateRole">cấp quyền tài khoản</a>
+                </li>
+
                 <li class="nav-item">
                     <?php
                     if (SessionHelper::isLoggedIn()) {
                         echo "<a class='navlink'>" . $_SESSION['username'] . "</a>";
                     } else {
-                        echo "<a class='nav-link' href='/webbanhang/account/login'>Login</a>";
+                        echo "<a class='nav-link' href='/WEBBANHANG/account/login'>Login</a>";
                     }
                     ?>
                 </li>
@@ -45,7 +54,7 @@
                     </a>
                     <?php
                     if (SessionHelper::isLoggedIn()) {
-                        echo "<a class='nav-link' href='/webbanhang/account/logout'>Logout</a>";
+                        echo "<a class='nav-link' href='/WEBBANHANG/account/logout'>Logout</a>";
                     }
                     ?>
                 </li>

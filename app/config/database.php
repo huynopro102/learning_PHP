@@ -17,4 +17,19 @@ class Database
         }
         return $this->conn;
     }
+
+
+    
+public function getAccountByUsername($username)
+{
+    $query = "SELECT * FROM account WHERE username = :username";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_OBJ);
+}
+
+
+
 }

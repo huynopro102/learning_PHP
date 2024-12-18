@@ -12,7 +12,7 @@ class ProductController
         $this->db = (new Database())->getConnection();
         $this->productModel = new ProductModel($this->db);
     }
-    public function index()
+    public function list()
     {
         $products = $this->productModel->getProducts();
         include 'app/views/product/list.php';
